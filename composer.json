@@ -1,0 +1,18 @@
+{
+  "name": "mr-jiawen/php-async-deal",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "chenjiawen",
+      "email": "604989282@qq.com"
+    }
+  ],
+  "require": {
+    "mr-jiawen/php-function": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "CjwAsync\\": ""
+    }
+  }
+}
