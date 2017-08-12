@@ -6,8 +6,11 @@ use CjwAsync\Src\AsyncLogHandle\AsyncLogObserverOfGenerator;
 
 class AsyncLogObserverOfNumA extends AsyncLogObserverOfGenerator
 {
-    public function onHandle()
+    public function onHandle($context)
     {
-       return false;
+        // TODO: Implement onHandle() method.
+
+        dump($context);
+        return true;
     }
 }

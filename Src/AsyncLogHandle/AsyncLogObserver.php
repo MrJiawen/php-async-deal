@@ -11,9 +11,11 @@ interface AsyncLogObserver
 {
     /**
      * 绑定处理方法
+     * @param $context
+     * @return mixed
      * @Author jiaWen.chen
      */
-    public function onHandle();
+    public function onHandle($context);
 
     /**
      * 订阅消息内容

@@ -80,14 +80,13 @@ class AsyncLogSubject
 
             // 2.1 格式化数据结构
             $this->_handleBefore(fgets($fp, 1024 * 1024 * 1024), $lineNum++);
-
             // 2.2 判断是否已经执行完毕
             if (empty($this->log_deal['deal_contain'])) {
                 $this->_dealSuccessContain();
                 Log::notice("执行定时任务，读取日志文件来完成订阅与发布，执行完毕！！！");
                 break;
             }
-
+            dump('执行定时任务，读取日志文件来完成订阅与发布,正在执行第'.$this->log_deal['deal_contain']['line_num'].'行...');
 
             // 2.3 执行对应的message事物。
             $observerExists = $observerResult = null;
@@ -97,7 +96,7 @@ class AsyncLogSubject
                     $observerExists = true;
                 }
             }
-            dump($observerResult);
+
             if (empty($observerExists)) {
                 // 2.4 如果不存在这个观察者
                 $this->_dealSuccessContain();
@@ -127,12 +126,10 @@ class AsyncLogSubject
                     ]);
             } else if ($observerResult === true) {
                 // 2.7 执行成功
-//                 dump($this->log_deal['success_contain']);
                 $this->log_deal['success_contain'] = [
                     'start_line' =>  $this->log_deal['success_contain']['start_line']?:$this->log_deal['deal_contain']['line_num'],
                     'end_line' => $this->log_deal['deal_contain']['line_num']
                 ];
-//                dump($this->log_deal['success_contain']);
             }
         }
     }

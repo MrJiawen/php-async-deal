@@ -6,8 +6,10 @@ use CjwAsync\Src\AsyncLogHandle\AsyncLogObserverOfGenerator;
 
 class AsyncLogObserverOfNumB extends AsyncLogObserverOfGenerator
 {
-    public function onHandle()
+    public function onHandle($context)
     {
-       return true;
+        dump($context);
+
+        return true;
     }
 }

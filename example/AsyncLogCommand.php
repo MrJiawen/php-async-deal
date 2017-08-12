@@ -42,7 +42,6 @@ class AsyncLogCommand extends Command
         $asyncLogSubject->addObserver(new AsyncLogObserverOfNumA());
         $asyncLogSubject->addObserver(new AsyncLogObserverOfNumB());
         $asyncLogSubject->handle();
-//        dd($asyncLogSubject);
     }
 
 }
