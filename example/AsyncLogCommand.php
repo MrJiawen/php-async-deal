@@ -41,6 +41,12 @@ class AsyncLogCommand extends Command
         $asyncLogSubject = new AsyncLogSubject();
         $asyncLogSubject->addObserver(new AsyncLogObserverOfNumA());
         $asyncLogSubject->addObserver(new AsyncLogObserverOfNumB());
+        $asyncLogSubject->onException(function ($message) {
+            $this->error('发现异常情况，具体的请查看日志，大致的错误信息如下所示：');
+            dump($message);
+        });
+
+
         $asyncLogSubject->handle();
     }
 
